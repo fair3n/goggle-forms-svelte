@@ -7,7 +7,7 @@ export class QuestionFactory {
             description: questionDescription.description,
             type: questionDescription.type,
             choix : questionDescription.choix,
-            reponse : (questionDescription.type === QuestionType.SIMPLE)? "response" : 
+            reponse : (questionDescription.type === QuestionType.SIMPLE)? questionDescription.description : 
             (questionDescription.type === QuestionType.MULTIPLE_MULTIPLE)? []: 
             (questionDescription.type === QuestionType.MULTIPLE_SIMPLE)? "" : null  
         }

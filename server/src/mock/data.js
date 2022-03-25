@@ -21,6 +21,20 @@ const formulaires = [
                         valeur : 'Bleu'
                     }
                 ]
+            },{
+                _id: '5',
+                description : 'Il fait jour ?',
+                type: 'MULTIPLE_SIMPLE',
+                choix : [
+                    {
+                        _id: '5.1',
+                        valeur : 'Oui'
+                    },
+                    {
+                        _id: '5.2',
+                        valeur : 'Non'
+                    }
+                ]
             },
             {
                 _id: '2',

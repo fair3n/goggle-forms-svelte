@@ -5,6 +5,7 @@ const cors = require('cors');
 const resultats = [];
 
 app.use(cors({
+    //TODO: A changer
     origin: '*'
 }))
 
@@ -14,27 +15,14 @@ app.listen(5000, () => {
     console.log("Server listening on port 5000");
 });
 
-app.post('/api/formulaires',(req, res) => {
-    const newformulaire = {
-        id: formulaires.length + 1,
-        name: req.body.name,
-        price: req.body.price
-    }
-    formulaires.push(newformulaire);
-    res.status(201).json(newformulaire);
-})
-
-
-
 app.post('/api/resultats/:formId',(req, res) => {
     console.log("POST - Resultats ",req.body);
     res.status(201).json(req.body);
 })
 
-app.get('/api/formulaires', (req, res) => {
-    res.json(formulaires);
-})
-
+// app.get('/api/formulaires', (req, res) => {
+//     res.json(formulaires);
+// })
 
 app.get('/api/formulaires/:id', (req, res) => {
     const id = req.params.id;

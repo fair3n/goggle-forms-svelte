@@ -1,12 +1,14 @@
 <script lang="ts">
     import { QuestionType, type Question} from "../models/question.model";
+    
     import Textfield from '@smui/textfield';
     import Card from '@smui/card';
     import Radio from '@smui/radio';
     import Checkbox from '@smui/checkbox';
     import FormField from '@smui/form-field';
+
     export let question: Question;
-    console.log(question)
+
 </script>
 
 <div class="question">
