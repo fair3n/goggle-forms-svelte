@@ -78,7 +78,7 @@ app.post('/api/resultats/:formId',(req, res) => {
     console.log("POST - Resultats ",req.body);
     Formulaire.findOne({ _id: req.body._id}).then(
         () => {
-            Resultat.update(req.body, {upsert: true}).then(
+            Resultat.updateOne({_id: req.body._id},req.body, {upsert: true}).then(
                 (result) => {
                     res.status(200).json(result);
                 }
@@ -112,7 +112,11 @@ app.get('/api/formulaires/:id', (req, res) => {
     console.log("GET - Formulaire : ",id);
     Formulaire.findOne({ _id: id}).then(
         (result) => {
-            res.status(200).json(result);
+            if(result){
+                res.status(200).json(result);
+            }else{
+                res.status(404).json("Not Found");
+            }
         }
     ).catch(
         (error) => {

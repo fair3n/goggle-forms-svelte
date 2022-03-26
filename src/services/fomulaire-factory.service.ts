@@ -6,7 +6,7 @@ export class FormulaireFactory {
         return {
             _id: formDescription._id,
             titre: formDescription.titre,
-            questions : formDescription.questions.map( q => QuestionFactory.create(q))
+            questions : formDescription.questions?.length > 0 ? formDescription.questions.map( q => QuestionFactory.create(q)) : []
         }
     }
 }
