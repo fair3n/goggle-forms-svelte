@@ -1,6 +1,6 @@
 {
   "name": "google-forms-svelte",
-  "version": "0.0.1",
+  "version": "1.0.0-beta",
   "scripts": {
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
