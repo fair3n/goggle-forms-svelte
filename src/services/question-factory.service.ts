@@ -5,11 +5,11 @@ export class QuestionFactory {
         return {
             _id: questionDescription._id,
             description: questionDescription.description,
-            type: questionDescription.type,
+            type: questionDescription.response_type,
             choix : questionDescription.choix,
-            reponse : (questionDescription.type === QuestionType.SIMPLE)? questionDescription.description : 
-            (questionDescription.type === QuestionType.MULTIPLE_MULTIPLE)? []: 
-            (questionDescription.type === QuestionType.MULTIPLE_SIMPLE)? "" : null  
+            reponse : (questionDescription.response_type === QuestionType.SIMPLE)? questionDescription.description : 
+            (questionDescription.response_type === QuestionType.MULTIPLE_MULTIPLE)? []: 
+            (questionDescription.response_type === QuestionType.MULTIPLE_SIMPLE)? "" : null  
         }
     }
 }

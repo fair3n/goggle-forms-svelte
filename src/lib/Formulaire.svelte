@@ -46,6 +46,7 @@
                 return response.json();
             })
             .then(data => {
+                console.log(data);
                 apiData.set(FormulaireFactory.create(data));
             });
         }else{
