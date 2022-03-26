@@ -29,8 +29,12 @@
             method: 'POST',
             headers: myHeaders,
             body: JSON.stringify(formulaire)
-        }).then(()=>{
-            alert("Form successfuly sent.")
+        }).then((response)=>{
+            if(response.status === 200){
+                alert("Form successfuly sent.")
+            }else{
+                alert(`Error while sending form.`)
+            }
             processing = false;
         });
     }

@@ -3,6 +3,19 @@
 
 ![](https://raw.githubusercontent.com/fair3n/goggle-forms-svelte/develop/docs/images/form.png)
 
+## Supported Inputs 
+
+#### SIMPLE
+![](https://raw.githubusercontent.com/fair3n/goggle-forms-svelte/develop/docs/images/SIMPLE.png)
+
+#### MULTIPLE SIMPLE
+
+![](https://raw.githubusercontent.com/fair3n/goggle-forms-svelte/develop/docs/images/MULTIPLE_SIMPLE.png)
+
+
+#### MULTIPLE MULTIPLE
+![](https://raw.githubusercontent.com/fair3n/goggle-forms-svelte/develop/docs/images/MULTIPLE_MULTIPLE.png)
+
 
 ## Installation
 
@@ -41,7 +54,7 @@ node src/index.js
 > Server will be runngin on localhost:5000
 
 ## Docker Compose
-Will run App and Api with a mongoDB Docker as on your computer (sudo needed for docker cmd).
+Will run App and Api with a mongoDB Docker on your computer (sudo needed for docker cmd).
 
 In `docker-compose.yml`, change the line 20 according to you IP.
 ```

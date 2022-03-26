@@ -41,7 +41,27 @@ const formulaireSchema = new mongoose.Schema({
     ]
 });
 
+const resultatSchema = new mongoose.Schema({
+    _id: String,
+    titre: String,
+    questions: [
+        {
+            _id: String,
+            description: String,
+            response_type: String,
+            reponse: String | Array[String],
+            choix: [
+                {
+                    _id: String,
+                    valeur: String,
+                }
+            ]
+        }
+    ]
+});
+
 const Formulaire = mongoose.model('Formulaire', formulaireSchema);
+const Resultat = mongoose.model('Resultat', resultatSchema);
 
 app.use(cors({
     //TODO: A changer
@@ -56,15 +76,37 @@ app.listen(5000, () => {
 
 app.post('/api/resultats/:formId',(req, res) => {
     console.log("POST - Resultats ",req.body);
-    res.status(201).json(req.body);
+    Formulaire.findOne({ _id: req.body._id}).then(
+        () => {
+            Resultat.update(req.body, {upsert: true}).then(
+                (result) => {
+                    res.status(200).json(result);
+                }
+            ).catch(
+                (error) => {
+                    res.status(500).json({error : error});
+                }
+            );
+        }
+    ).catch(
+        (error) => {
+            res.status(500).json({error : "No Form corresponding"});
+        }
+    )
+    
 })
 
- app.get('/api/formulaires', (req, res) => {
-     Formulaire.find({}, (err, found) => {
+ app.get('/api/resultats', (req, res) => {
+    Resultat.find({}, (err, found) => {
          res.json(found);
      })
  })
-
+ 
+ app.get('/api/formulaires', (req, res) => {
+    Formulaire.find({}, (err, found) => {
+        res.json(found);
+    })
+})
 app.get('/api/formulaires/:id', (req, res) => {
     const id = req.params.id;
     console.log("GET - Formulaire : ",id);
