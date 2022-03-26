@@ -1,5 +1,9 @@
 # Google Form Svelte Clone
 
+
+![Form](https://raw.githubusercontent.com/fair3n/google-forms-svelte/master/docs/images/form.png "Form")
+
+
 ## Installation
 
 ```
