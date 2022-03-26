@@ -2,17 +2,15 @@
   "name": "google-forms-svelte",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "prepare": "svelte-kit sync",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
     "clean": "rm -rf build",
-    "compose": "npm run clean && npm run build && sudo docker-compose -f devops/docker-compose.yml up --build"
+    "dev": "npm run prepare-dev && svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "prepare-dev": "cp .env.dev .env",
+    "prepare-prod": "cp .env.prod .env",
+    "compose": "npm run clean && npm run prepare-prod && npm run build && sudo docker-compose -f devops/docker-compose.yml up --build"
   },
   "devDependencies": {
     "@smui/button": "^6.0.0-beta.15",

@@ -1,10 +1,10 @@
 <script lang="ts">
+    const API_URL = import.meta.env.VITE_API_URL;
     import { onMount } from "svelte";
     import { writable, derived } from 'svelte/store';
 
     import type { Formulaire } from '../models';
     import { FormulaireFactory } from '../services';
-    import { ForumalaireApi } from '../env/env.js'
 
     import Button from '@smui/button';
     import Card , {Actions} from '@smui/card';
@@ -24,7 +24,7 @@
         processing = true;
         let myHeaders = new Headers();
         myHeaders.append("Content-Type","application/json");
-        fetch(`${ForumalaireApi}/api/resultats/${formulaire._id}`,
+        fetch(`${API_URL}/api/resultats/${formulaire._id}`,
         {
             method: 'POST',
             headers: myHeaders,
@@ -38,7 +38,7 @@
     onMount(async () => {
         const formId = window.location.hash.slice(1);
         if(formId.length > 2){
-            fetch(`${ForumalaireApi}/api/formulaires/${formId}`)
+            fetch(`${API_URL}/api/formulaires/${formId}`)
             .then(response => {
                 if(response.status === 404){
                     window.location.pathname = '404';
@@ -46,7 +46,6 @@
                 return response.json();
             })
             .then(data => {
-                console.log(data);
                 apiData.set(FormulaireFactory.create(data));
             });
         }else{

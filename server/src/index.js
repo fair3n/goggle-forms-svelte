@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 async function initDB() {
     try {
         await mongoose.connect(
-            "mongodb://root:example@192.168.56.6:27017",
+            process.env.MONGODB_URI,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true

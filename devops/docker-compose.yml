@@ -16,11 +16,13 @@ services:
       dockerfile: devops/SERVER/Dockerfile
     ports:
       - "5000:5000" 
+    environment:
+      - MONGODB_URI="mongodb://root:example@192.168.56.6:27017"
 
   app:
     build: 
       context: ..
       dockerfile: devops/APP/Dockerfile
     ports:
-      - "80:3000" 
+      - "80:3000"
 
