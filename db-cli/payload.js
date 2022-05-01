@@ -56,7 +56,7 @@ const db_payload = {
         },
         {
             _id: '3',
-            description : 'Qui es-tu ?',
+            description : 'Qui êtes-vous ?',
             response_type: 'SIMPLE',
             choix : []
         }
