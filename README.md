@@ -8,20 +8,20 @@
 
 
 #### Application
-```
+```bash
 npm install
 ```
 
 #### Server
 
-```
+```bash
 cd server
 npm install
 
 ```
 
 #### Database helper CLI
-```
+```bash
 cd db-cli
 npm install
 ```
@@ -37,7 +37,7 @@ npm install
 
 ### App
 
-```
+```bash
 npm run dev -- --open --host
 ```
 > Application will be running on localhost:3000
@@ -50,7 +50,7 @@ npm run dev -- --open --host
 > Provide your mongo uri with the environment variable MONGODB_URI
 
 
-```
+```bash
 cd server
 node src/index.js
 ```
@@ -72,7 +72,7 @@ VITE_API_URL=http://192.168.56.6:5000
 
 Start the docker compose :
 
-```
+```bash
 npm run compose
 ```
 
@@ -96,7 +96,7 @@ To define your form and inser them in the database, please refer to the `db-cli`
 #### SIMPLE
 ![](https://raw.githubusercontent.com/fair3n/goggle-forms-svelte/develop/docs/images/SIMPLE.png)
 
-```json
+```
 {
     _id: '3',
     description : 'Qui es-tu ?',
@@ -109,19 +109,23 @@ To define your form and inser them in the database, please refer to the `db-cli`
 
 ![](https://raw.githubusercontent.com/fair3n/goggle-forms-svelte/develop/docs/images/MULTIPLE_SIMPLE.png)
 
-```json
+```
 {
-    _id: '5',
-    description : 'Il fait jour ?',
+    _id: '1',
+    description : 'Quelle est la couleur ?',
     response_type: 'MULTIPLE_SIMPLE',
     choix : [
         {
-            _id: '5.1',
-            valeur : 'Oui'
+            _id: '1.1',
+            valeur : 'Rouge'
         },
         {
-            _id: '5.2',
-            valeur : 'Non'
+            _id: '1.2',
+            valeur : 'Vert'
+        },
+        {
+            _id: '1.3',
+            valeur : 'Bleu'
         }
     ]
 }
